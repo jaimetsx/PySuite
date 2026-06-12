@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PySuite"
+version = "0.1.0"
+description = "A terminal-based cybersecurity and sysadmin utility suite"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "rich==15.0.0",
+    "dnspython==2.8.0",
+    "httpx==0.28.1",
+    "python-whois==0.9.6"
+]
+
+[project.scripts]
+pysuite = "main:main"
