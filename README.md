@@ -44,7 +44,7 @@ This makes it useful both as a personal toolkit and as a portfolio project.
 ### Clone the repository
 
 ```bash
-git clone https://github.com/jaimetsx/pysuite.git
+git clone https://github.com/jaimetsx/PySuite.git
 cd pysuite
 ```
 
