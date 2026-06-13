@@ -1,0 +1,44 @@
+name: Python Syntax Check
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+    paths:
+      - '**.py'
+  pull_request:
+    branches:
+      - main
+      - dev
+    paths:
+      - '**.py'
+
+jobs:
+  syntax-check:
+    name: Check Python Syntax
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Check syntax of main.py
+        run: python -m py_compile main.py && echo "✔ main.py OK"
+
+      - name: Check syntax of files in core/
+        run: |
+          find core/ -name "*.py" | while read file; do
+            python -m py_compile "$file" && echo "✔ $file OK"
+          done
+
+      - name: Check syntax of files in modules/
+        run: |
+          find modules/ -name "*.py" | while read file; do
+            python -m py_compile "$file" && echo "✔ $file OK"
+          done
